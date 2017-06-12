@@ -7,7 +7,7 @@ function reverse(str){
 	return reversed
 }
 
-function cleaner(str, min, max){
+function superCleaner(str, min, max){
 	var cleanString = "";
 	var min = min || 97;
 	var max = max || 122;
@@ -19,9 +19,21 @@ function cleaner(str, min, max){
 	return cleanString;
 }
 
+function cleaner(str, min, max){
+	var cleanString = "";
+	var min = min || 97;
+	var max = max || 122;
+	for (var i = 0; i < str.length; i++) {
+		if(str.charCodeAt(i) >= min && str.charCodeAt(i) <= max || str.charCodeAt(i) == 32){
+			cleanString += str[i];
+		}
+	}
+	return cleanString;
+}
+
 function iSearch(str) {
 	var cleanString = cleaner(str.toLowerCase());
-	console.log(cleanString);
+	// console.log(cleanString);
 	var polSet = cleanString.split(" ");
 	var longest = '';
 	for (var i = 0; i < polSet.length; i++) {
@@ -43,9 +55,9 @@ function iSearch(str) {
 
 				for (var x = i; x <= y; x++) {
 					checkingStr += polSet[x];
-					console.log(checkingStr);
+					// console.log(checkingStr);
 					candidateRam += trueResult[x] + " ";
-					console.log(candidateRam);
+					// console.log(candidateRam);
 				}
 				if( checkingStr === cleaner(reverse(checkingStr)) ) {
 					if(checkingStr.length > longest.length) {
