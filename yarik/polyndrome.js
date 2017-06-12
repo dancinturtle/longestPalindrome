@@ -1,3 +1,4 @@
+var cString = "I did, did I, Madam I'm Adam, racecar"
 function reverse(str){
 	var reversed = '';
 	for (var i = 0; i < str.length; i++) {
@@ -17,3 +18,18 @@ function cleaner(str, min, max){
 	}
 	return cleanString;
 }
+
+function longestPolyndrome(str) {
+	var polSet = str.toLowerCase().split(" ");
+	var longest = ""
+	for (var i = 0; i < polSet.length; i++) {
+		if( polSet[i] === cleaner(reverse(polSet[i])) ) {
+			if(polSet[i].length > longest.length) {
+				longest = polSet[i]
+			}
+		}
+	}
+	return longest
+}
+
+console.log(longestPolyndrome('Racecar madamimadam maam') )
