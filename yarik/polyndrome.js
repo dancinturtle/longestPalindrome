@@ -36,6 +36,7 @@ function iSearch(str) {
 	// console.log(cleanString);
 	var polSet = cleanString.split(" ");
 	var longest = '';
+	var longestReal = '';
 	for (var i = 0; i < polSet.length; i++) {
 		if( polSet[i] === cleaner(reverse(polSet[i])) ) {
 			if(polSet[i].length > longest.length) {
@@ -48,26 +49,29 @@ function iSearch(str) {
 	var candidateRam = '';
 	for (var i = 0; i < polSet.length; i++) {
 		for (var y = i+1; y < polSet.length; y++) {
-			if (y >= polSet.length-1){
+			if (y == polSet.length){
 				break;
 			}
 			if(polSet[i][0] == polSet[y][polSet[y].length-1]) {
 
 				for (var x = i; x <= y; x++) {
 					checkingStr += polSet[x];
-					// console.log(checkingStr);
+					console.log(checkingStr);
 					candidateRam += trueResult[x] + " ";
 					// console.log(candidateRam);
 				}
-				if( checkingStr === cleaner(reverse(checkingStr)) ) {
+				if( checkingStr === reverse(checkingStr) )  {
 					if(checkingStr.length > longest.length) {
-						longest = candidateRam;
+						longest = checkingStr;
+						longestReal = candidateRam;
 					}
 				}
+				checkingStr = '';
+				candidateRam = '';
 			}
 		}
 	}
-	return longest
+	return longestReal
 }
 
 
