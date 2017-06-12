@@ -16,66 +16,6 @@
 		return true
 	}
 
-	console.log("Return the longest palindromic substring with spaces")
-
-	function longestPalindromeforFirstProb(str){
-		var arr =  str.split(" "); //removes space
-		var str1 = arr.join(""); 
-		//console.log(arr)
-		var str2 = "";
-		for(var i = 0; i < str.length; i++){
-			var code =  str.charCodeAt(i)
-			if((code > 96 && code < 123) || code == 32){ //
-				str2 += str[i]
-			}
-			else if( code > 64 && code < 91){
-				str2 += str[i].toLowerCase();
-			}
-		}
-		console.log(str2)
-		var arr1 = [];
-		var str3 = ""
-		for(var j = 0; j<str2.length; j++){
-			for(var k = (j+1); k < str2.length; k++){
-				//console.log(str2[j])
-				//console.log(str2[k])
-				if(str2[j] == str2[k]){
-					for(var u = j; u <= k; u++){
-						str3 += str2[u]
-					}
-					arr1.push(str3)
-					//console.log(str3)
-					str3 = ""
-				}
-
-			}
-		}
-		console.log("Arr1: ", arr1)
-		var arr2 = [];
-		for(var p = 0; p<arr1.length; p++){
-			//console.log(arr1[p])
-			if(check_palindrome(arr1[p])){
-				arr2.push(arr1[p])
-			}
-		}
-		console.log(arr2)
-		var thislength = 0;
-		var longestone = ""
-		for(var g = 0; g < arr2.length; g++){
-			if(arr2[g].length > thislength){
-				thislength = arr2[g].length
-				longestone = arr2[g]
-			}
-		}
-		console.log("Longest one: ", longestone)
-
-
-		return longestone
-	}
-	string1 = "what up, daddy-o?"
-	console.log(longestPalindromeforFirstProb(string1))
-	string3 = "Yikes! my favorite racecar erupted!"
-	console.log(longestPalindromeforFirstProb(string3))
 
 	console.log("Return the longest palindromic substring without spaces, tabs, capitalization, and punctuation")
 
@@ -137,6 +77,68 @@
 	console.log(longestPalindrome(string3))
 	string4 = "Hot puree eruption!"
 	console.log(longestPalindrome(string4))
+
+	// console.log("Return the longest palindromic substring with spaces")
+
+	// function longestPalindromeforFirstProb(str){
+	// 	var arr =  str.split(" "); //removes space
+	// 	var str1 = arr.join(""); 
+	// 	//console.log(arr)
+	// 	var str2 = "";
+	// 	for(var i = 0; i < str.length; i++){
+	// 		var code =  str.charCodeAt(i)
+	// 		if((code > 96 && code < 123) || code == 32){ //
+	// 			str2 += str[i]
+	// 		}
+	// 		else if( code > 64 && code < 91){
+	// 			str2 += str[i].toLowerCase();
+	// 		}
+	// 	}
+	// 	console.log(str2)
+	// 	var arr1 = [];
+	// 	var str3 = ""
+	// 	for(var j = 0; j<str2.length; j++){
+	// 		for(var k = (j+1); k < str2.length; k++){
+	// 			//console.log(str2[j])
+	// 			//console.log(str2[k])
+	// 			if(str2[j] == str2[k]){
+	// 				for(var u = j; u <= k; u++){
+	// 					str3 += str2[u]
+	// 				}
+	// 				arr1.push(str3)
+	// 				//console.log(str3)
+	// 				str3 = ""
+	// 			}
+
+	// 		}
+	// 	}
+	// 	console.log("Arr1: ", arr1)
+	// 	var arr2 = [];
+	// 	for(var p = 0; p<arr1.length; p++){
+	// 		//console.log(arr1[p])
+	// 		if(check_palindrome(arr1[p])){
+	// 			arr2.push(arr1[p])
+	// 		}
+	// 	}
+	// 	console.log(arr2)
+	// 	var thislength = 0;
+	// 	var longestone = ""
+	// 	for(var g = 0; g < arr2.length; g++){
+	// 		if(arr2[g].length > thislength){
+	// 			thislength = arr2[g].length
+	// 			longestone = arr2[g]
+	// 		}
+	// 	}
+	// 	console.log("Longest one: ", longestone)
+
+
+	// 	return longestone
+	// }
+	// string1 = "what up, daddy-o?"
+	// console.log(longestPalindromeforFirstProb(string1))
+	// string3 = "Yikes! my favorite racecar erupted!"
+	// console.log(longestPalindromeforFirstProb(string3))
+
 
 	</script>
 </body>
