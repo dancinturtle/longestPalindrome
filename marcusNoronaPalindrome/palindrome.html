@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment1</title>
+        <meta charset="utf-8">
+
+    </head>
+
+    <script type = "text/javascript">
+        function clean(input){
+            var newStr = ""
+            for (var i = 0; i < input.length; i++){
+                if ((input.charCodeAt(i) >= 65 && input.charCodeAt(i)<= 90) 
+                    || (input.charCodeAt(i) >= 97 && input.charCodeAt(i) <= 122)){
+                        newStr+= input.charAt(i);
+                    }
+            }
+            return newStr;
+        }
+        
+        function isPalindrome(input){
+            var palindrome = true;
+            var rightSide = input.length-1
+            for (var i = 0; i < input.length/2; i++){
+                // console.log("Left side: ");
+                // console.log("Right side: ");
+                console.log();
+                if (input[i] != input[rightSide]){
+                return false
+                }
+                rightSide--;
+            }
+            return true;
+        }
+
+        function longestPalindrome(input){
+            longest = "";
+            cleanInput = clean(input);
+            for (var i = 0; i < cleanInput.length; i++){
+                var character = cleanInput[i];
+                var newStr = character
+                
+                for (var j = i+1; j< cleanInput.length; j++){
+                    var count = j-i;
+                    newStr += cleanInput[j]
+                    // console.log(newStr);
+                    if (character == cleanInput[j] && count > longest.length){
+                        if (isPalindrome(newStr)){
+                            longest = newStr;
+                            // console.log(longest)
+                        }
+                    }
+                }
+            }
+            if (longest.length == 0){
+                return cleanInput[0]
+            }
+            else {
+                return longest
+            }
+        }
+
+        console.log(longestPalindrome("dadm1ad3ami'di3di5diia;dlfjdidd''idiawe;ofijdadmadam"));
+
+        // console.log("A: " + "A".charCodeAt(0))
+        // console.log("Z: " + "Z".charCodeAt(0))
+        // console.log("a: " + "a".charCodeAt(0))
+        // console.log("z: " + "z".charCodeAt(0))
+
+        // console.log(clean(";asd10238ads;lfeajkf'fj;"));
+    </script>
+</html>
+
